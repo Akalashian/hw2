@@ -17,9 +17,62 @@ let blockchain = [
   { fromUser: "ben", toUser: "jeff", amount: 400 },
   { fromUser: "brian", toUser: "jeff", amount: 1500 },
   { fromUser: "jeff", toUser: "brian", amount: 4500 },
-  { fromUser: "jeff", toUser: "ben", amount: 1750 }
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
+  { fromUser: "jeff", toUser: "ben", amount: 1750 },
 ]
 
+// let brianAmount = 0
+// let benAmount = 0
+// users = []
+
+let calculateBalance = function(name) {
+  let amount = 0
+  for (var i = 0; i < blockchain.length; i++) {
+    //
+    // if toUser is in users
+    if blockchain[i].toUser===name {
+      amount = amount + blockchain[i].amount
+    }
+    if blockchain[i].fromUser===name {
+      amount = amount - blockchain[i].amount
+    }
+  }
+  return amount
+}
+calculateBalance('brian')
+calculateBalance('ben')
+calculateBalance('jeff')
+
+
+// for (var i = 0; i < blockchain.length; i++) {
+//   //
+//   if blockchain[i].toUser==="ben" {
+//     benAmount = benAmount + blockchain[i].amount
+//   }
+//   if blockchain[i].fromUser==="ben" {
+//     benAmount = benAmount - blockchain[i].amount
+//   }
+// }
+//
+//
+//
+// if blockchain[1].toUser==="brian" {
+//   brianAmount = brianAmount + blockchain[1].amount
+// }
+// if blockchain[2].toUser==="brian" {
+//   brianAmount = brianAmount + blockchain[2].amount
+// }
+// if blockchain[3].toUser==="brian" {
+//   brianAmount = brianAmount + blockchain[3].amount
+// }
+// if blockchain[4].toUser==="brian" {
+//   brianAmount = brianAmount + blockchain[4].amount
+// }
+// console.log(brianAmount)
 // Write a function that, when given a username (i.e. brian, ben, or jeff),
 // returns the number of KelloggCoin that user has in their KelloggCoin "wallet".
 
@@ -34,22 +87,7 @@ let blockchain = [
 // Ben's KelloggCoin balance is 10350
 // Jeff's KelloggCoin balance is 2650
 
-let user = [
-  {name:"brian", balance:0 }
-  {name: "ben", balance:0 }
-  {name:"jeff", balance:0 }
-]
 
-let getBalance = function(inputName) {
-  for(let i=0; i<user.length;i++){
-    if(user[i].name===inputName)
-      return user[i].balance
-  }
-}
-
-// I don't know how to do this. I am very confused and will set up an appointment with you. Thank you.
-
-
-console.log("Brian's KelloggCoin balance is " + getBalance("brian"));
-console.log("Ben's KelloggCoin balance is " + getBalance("ben"));
-console.log("Jeff's KelloggCoin balance is " + getBalance("jeff"));
+console.log("Brian's KelloggCoin balance is " + calculateBalance("brian"));
+console.log("Ben's KelloggCoin balance is " + calculateBalance("ben"));
+console.log("Jeff's KelloggCoin balance is " + calculateBalance("jeff"));
