@@ -27,17 +27,16 @@ let blockchain = [
 
 // let brianAmount = 0
 // let benAmount = 0
-// users = []
+// brianAmount = brianAmount + blockchain[0].amount
+// console.log(brianAmount)
 
 let calculateBalance = function(name) {
-  let amount = 0
+  let amount = 0;
   for (var i = 0; i < blockchain.length; i++) {
-    //
-    // if toUser is in users
-    if blockchain[i].toUser===name {
+    if (blockchain[i].toUser===name) {
       amount = amount + blockchain[i].amount
     }
-    if blockchain[i].fromUser===name {
+    if (blockchain[i].fromUser===name) {
       amount = amount - blockchain[i].amount
     }
   }
@@ -46,6 +45,14 @@ let calculateBalance = function(name) {
 calculateBalance('brian')
 calculateBalance('ben')
 calculateBalance('jeff')
+
+// Notes from Class 2.13.2018
+// calculateBalance is a function which is just something that does something it returns what you put after "return"
+// parameter withi a function (what is between parenthesis is what is changing within  your array, here is the name of the user)
+// if you hardcoded the return at end of function, it will spit it out
+//
+
+
 
 
 // for (var i = 0; i < blockchain.length; i++) {
